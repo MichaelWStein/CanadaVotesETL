@@ -89,16 +89,19 @@ for district in distlist:
 # Create the datafiles 
 print('finished, read', i, 'files')
 print(columns)
-print("Sample=", district_data[5] )
+print("Sample=", district_data[312])
 
-# Use list of column names and datafiles to create the new dataframe - this part doesn't work yet
+# Use list of column names and datafiles to create the new dataframe
+el_dist_df = pd.DataFrame(columns=columns)
+for i in range(len(district_data)):
+    el_dist_df.loc[i] = district_data[i]
 
-#el_dist_df = pd.DataFrame(np.array([district_data]), columns=[columns])
-#print(el_dist_df.head())
+print(el_dist_df.head(20))
 
 # Pickel the dataframe (for use in other programs)
 # File can be easily re-converted into a df with pd.read_pickle("nameoffiletounpickel")
 
-#el_dist_df.to_pickle("Census2016ElectoralDistrictsInfo.pkl")
+el_dist_df.to_pickle("Census2016ElectoralDistrictsInfo.pkl")
 
-#print("Data stored")
+print("Data stored")
+
