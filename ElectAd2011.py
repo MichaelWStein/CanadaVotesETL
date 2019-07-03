@@ -28,23 +28,41 @@ while i < counter:
 print(results)
 
 #Unpickle the dataframe and add column with default value
-census_df = pd.read_pickle("Census2016ElecDistrwResults.pkl")
+census_df = pd.read_pickle("Census2016ElectoralDistrictsInfo.pkl")
 census_df['2011 Results'] = 'unknown'
+
+print(census_df.head())
 
 #Loop through the dataframe
 # still need to work on this loup - some of the electoral districts didn't exist in the 2011 election (only 308 seats)
 counter = census_df.shape[0]
+no_data = []
 i = 0
 while i < counter:
     distr = census_df.iloc[i][2]
-    party = results[int(distr)]
-    census_df.at[i, '2011 Results'] = party
+    if int(distr) in results:
+        party = results[int(distr)]
+        census_df.at[i, '2011 Results'] = party
+        print(party)
+    else: 
+        print(i)
+        no_data.append(i)
     i += 1
-    
+
+print(no_data)
+for district in no_data:
+    census_df.drop([district], inplace=True)  
+
+#Need to reset the index after the rows were dropped
+census_df.reset_index(inplace = True)
+
 print(census_df.head())
 print(census_df.tail())
 
+print(census_df)
+
+
 #Save the dataframe with the results
-census_df.to_pickle("Census2016ElecDistrw2011_15Results.pkl")
+census_df.to_pickle("Census2016ElecDistrw2011Results.pkl")
 
 
