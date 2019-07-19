@@ -1,2 +1,2 @@
-This repository contains all programs related to the extraction and transformation of data for the Canada Votes project. Data is then 
-stored for further processing in the analysis / forecasting stage. The kind of storage is yet uncecided, I suggest .csv or pickle. 
+This repository contains all programs related to the extraction and transformation of data for the Canada Votes project.
+Data is stored in *.pkl files for further processing.
