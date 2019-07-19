@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-#Read the csv file with the election results
+#Read the csv file with the election results - this is just for 2011 results
 election_results_2011 = pd.read_csv('resultsbyelectoralDistrict2011.csv')
 
 #Create a dictionary - key is the electoral district number (which can be linked to the geo-code in the df for the election results),
