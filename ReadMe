@@ -1,2 +1,6 @@
 This repository contains all programs related to the extraction and transformation of data for the Canada Votes project.
 Data is stored in *.pkl files for further processing.
+
+DataColl2016V1.py pulls the dataframe for the electroal Districts together from statscan.
+FurtherProcessing2016FrameV1.ipynb prepares the dataframe for machine learing.
+AddElectionDataFinVers.ipynb then adds the election data from all elections and creates on giant dataframe for the processing.
